@@ -29,6 +29,8 @@ tags:
   description: Endpoints to manage User resources.
 - name: UserComponentSetting
   description: Endpoints to manage UserComponentSetting resources.
+- name: Test Fake Users
+  description: Fake endpoints for documentation-only testing.
 paths:
   /realms/dealercrm/protocol/openid-connect/token:
     post:
@@ -5411,6 +5413,244 @@ paths:
                     operationTrace: 0199bf69-3a8f-75bb-8e6d-152301584330
           x-apidog-name: Internal Server Error
           x-apidog-status: Internal Server Error
+
+  /test-fake-users:
+    get:
+      tags:
+      - Test Fake Users
+      operationId: listTestFakeUsers
+      summary: List fake test users
+      description: Returns a fake list of test users (documentation-only endpoint).
+      x-apidog-folder: Endpoints/Test Fake Users
+      parameters:
+      - $ref: '#/components/parameters/ContextCode'
+      - $ref: '#/components/parameters/XOperationTrace'
+      - $ref: '#/components/parameters/AcceptLanguage'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListTestFakeUsersResponse'
+          x-apidog-name: OK
+          x-apidog-status: OK
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          x-apidog-name: Bad Request
+          x-apidog-status: Bad Request
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          x-apidog-name: Unauthorized
+          x-apidog-status: Unauthorized
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          x-apidog-name: Internal Server Error
+          x-apidog-status: Internal Server Error
+    post:
+      tags:
+      - Test Fake Users
+      operationId: createTestFakeUser
+      summary: Create fake test user
+      description: Creates a fake test user (documentation-only endpoint).
+      x-apidog-folder: Endpoints/Test Fake Users
+      parameters:
+      - $ref: '#/components/parameters/ContextCode'
+      - $ref: '#/components/parameters/XOperationTrace'
+      - $ref: '#/components/parameters/AcceptLanguage'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTestFakeUserRequest'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TestFakeUserResponse'
+          x-apidog-name: Created
+          x-apidog-status: Created
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          x-apidog-name: Bad Request
+          x-apidog-status: Bad Request
+        '422':
+          description: Unprocessable Content
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationProblemDetails'
+          x-apidog-name: Unprocessable Content
+          x-apidog-status: Unprocessable Content
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          x-apidog-name: Internal Server Error
+          x-apidog-status: Internal Server Error
+  /test-fake-users/{code}:
+    get:
+      tags:
+      - Test Fake Users
+      operationId: getTestFakeUser
+      summary: Get fake test user
+      description: Returns one fake test user by code (documentation-only endpoint).
+      x-apidog-folder: Endpoints/Test Fake Users
+      parameters:
+      - $ref: '#/components/parameters/ContextCode'
+      - $ref: '#/components/parameters/XOperationTrace'
+      - $ref: '#/components/parameters/AcceptLanguage'
+      - name: code
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          example: 01936f8e-7a29-7b32-a456-123456789abc
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TestFakeUserResponse'
+          x-apidog-name: OK
+          x-apidog-status: OK
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          x-apidog-name: Not Found
+          x-apidog-status: Not Found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          x-apidog-name: Internal Server Error
+          x-apidog-status: Internal Server Error
+    patch:
+      tags:
+      - Test Fake Users
+      operationId: updateTestFakeUser
+      summary: Patch fake test user
+      description: Partially updates a fake test user (documentation-only endpoint).
+      x-apidog-folder: Endpoints/Test Fake Users
+      parameters:
+      - $ref: '#/components/parameters/ContextCode'
+      - $ref: '#/components/parameters/XOperationTrace'
+      - $ref: '#/components/parameters/AcceptLanguage'
+      - $ref: '#/components/parameters/IfMatch'
+      - name: code
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          example: 01936f8e-7a29-7b32-a456-123456789abc
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateTestFakeUserRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TestFakeUserResponse'
+          x-apidog-name: OK
+          x-apidog-status: OK
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          x-apidog-name: Not Found
+          x-apidog-status: Not Found
+        '422':
+          description: Unprocessable Content
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationProblemDetails'
+          x-apidog-name: Unprocessable Content
+          x-apidog-status: Unprocessable Content
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          x-apidog-name: Internal Server Error
+          x-apidog-status: Internal Server Error
+    delete:
+      tags:
+      - Test Fake Users
+      operationId: deleteTestFakeUser
+      summary: Delete fake test user
+      description: Deletes a fake test user (documentation-only endpoint).
+      x-apidog-folder: Endpoints/Test Fake Users
+      parameters:
+      - $ref: '#/components/parameters/ContextCode'
+      - $ref: '#/components/parameters/XOperationTrace'
+      - $ref: '#/components/parameters/AcceptLanguage'
+      - $ref: '#/components/parameters/IfMatch'
+      - name: code
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          example: 01936f8e-7a29-7b32-a456-123456789abc
+      responses:
+        '204':
+          description: No Content
+          x-apidog-name: No Content
+          x-apidog-status: No Content
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          x-apidog-name: Not Found
+          x-apidog-status: Not Found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          x-apidog-name: Internal Server Error
+          x-apidog-status: Internal Server Error
 components:
   schemas:
     LocaleEnumLabel:
@@ -7966,6 +8206,74 @@ components:
           nullable: true
       required:
       - code
+
+    CreateTestFakeUserRequest:
+      type: object
+      title: Test Fake User for Post Request
+      properties:
+        name:
+          type: string
+          example: Test User
+        email:
+          type: string
+          example: test.user@dolphin.local
+        status:
+          type: string
+          example: active
+      required:
+      - name
+      - email
+      additionalProperties: false
+      x-apidog-folder: Schemas/Test Fake Users/Requests
+    UpdateTestFakeUserRequest:
+      type: object
+      title: Test Fake User for Patch Request
+      properties:
+        name:
+          type: string
+          example: Updated Test User
+        email:
+          type: string
+          example: updated.user@dolphin.local
+        status:
+          type: string
+          example: inactive
+      additionalProperties: false
+      x-apidog-folder: Schemas/Test Fake Users/Requests
+    TestFakeUserResponse:
+      type: object
+      title: Test Fake User for Response
+      properties:
+        code:
+          type: string
+          format: uuid
+          example: 01936f8e-7a29-7b32-a456-123456789abc
+        name:
+          type: string
+          example: Test User
+        email:
+          type: string
+          example: test.user@dolphin.local
+        status:
+          type: string
+          example: active
+      required:
+      - code
+      - name
+      - email
+      - status
+      x-apidog-folder: Schemas/Test Fake Users/Responses
+    ListTestFakeUsersResponse:
+      type: object
+      title: Test Fake User list response
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/TestFakeUserResponse'
+      required:
+      - data
+      x-apidog-folder: Schemas/Test Fake Users/Responses
   securitySchemes:
     bearer:
       type: http
