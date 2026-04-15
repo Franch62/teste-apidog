@@ -15,7 +15,7 @@ cat > /tmp/apidog-payload.json <<EOF
     "url": "${OPENAPI_URL}"
   },
   "options": {
-    "targetEndpointFolderId": 7899486,
+    "targetEndpointFolderId": 0,
     "targetSchemaFolderId": 0,
     "endpointOverwriteBehavior": "OVERWRITE_EXISTING",
     "schemaOverwriteBehavior": "OVERWRITE_EXISTING",
